@@ -9,7 +9,7 @@ from PIL import Image
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-model=genai.GenerativeModel("gemini-1.5-flash")
+model=genai.GenerativeModel("gemini-2.5-flash")
 def get_gemini_response(input, image):
     if input != "":
         response = model.generate_content([input, image])
@@ -38,3 +38,4 @@ if submit:
             response = get_gemini_response(input, image)
         st.success("Response generated!", icon="✅")
         st.write(response)
+
